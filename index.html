@@ -157,6 +157,13 @@
         .research-card ul { display: flex; flex-wrap: wrap; gap: 8px; }
         .research-card li { background: var(--accent-light); color: var(--primary-light); padding: 5px 10px; border-radius: 5px; font-size: 0.72rem; font-weight: 500; }
 
+        .toolkit-card { margin-top: 25px; background: var(--surface); padding: 38px; border: 1px solid var(--border); border-radius: var(--radius); }
+        .toolkit-card h3 { font-family: "Playfair Display", serif; font-size: 1.45rem; color: var(--primary); margin-bottom: 22px; }
+        .tool-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+        .tool-chip { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--accent-light); color: var(--primary-light); font-size: 0.86rem; font-weight: 600; transition: var(--transition); }
+        .tool-chip span { font-size: 0.75rem; opacity: 0.6; }
+        .tool-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
         /* Projects */
         .projects-list { display: flex; flex-direction: column; gap: 35px; }
         .project-card { display: grid; grid-template-columns: 0.85fr 1.15fr; min-height: 320px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); transition: var(--transition); }
@@ -258,9 +265,8 @@
             </div>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I am a PhD candidate in the Department of Chemical Engineering at <strong>Indian Institute of Technology Gandhinagar</strong>, working under the supervision of <strong>Prof. Mithun Radhakrishna</strong>. My doctoral research focuses on understanding conformational landscapes and binding mechanisms of metalloenzymes using molecular dynamics simulations, Markov State Models, free-energy calculations, mutational studies, molecular docking, and transition path theory.</p>
-                    <p>I completed my B.Tech. in Biotechnology Engineering from <strong>NIT Durgapur</strong> in 2021. I was a Visiting Scholar at the <strong>University of Illinois at Urbana-Champaign</strong> (Dec 2025 – Apr 2026) working with Prof. Diwakar Shukla on developing generative AI models for determining enzyme conformational states and loop dynamics.</p>
-                    <p>My research integrates molecular dynamics simulations, free-energy calculations, Markov State Models, machine learning, and experimental techniques like isothermal titration calorimetry to understand enzyme-ligand binding mechanisms, protein folding, and conformational dynamics. I am particularly interested in applying these computational approaches to design biosensors for environmental pollutant detection and bioremediation applications.</p>
+                    <p>Enzymes are never still: loops flex, gates open and shut, and a small change in shape decides which molecule binds. I capture these motions, from enzyme-ligand binding to protein folding, by combining simulations, free-energy calculations, Markov State Models, and machine learning with experiments such as isothermal titration calorimetry.<br>The goal: biosensors for environmental pollutant detection and enzymes for bioremediation.</p>
+                    <p>My journey into the molecular world began with a B.Tech. in Biotechnology Engineering at <strong>NIT Durgapur</strong>, India (2021). Besides being an academician, I am a music vocalist and a 1st Dan Black Belt Karateka in the Shito-Ryu style.</p>
                 </div>
                 <div class="about-details">
                     <div class="detail-item">
@@ -337,6 +343,24 @@
                     </ul>
                 </article>
             </div>
+                <div class="toolkit-card">
+                    <div class="research-number">TOOLKIT</div>
+                    <h3>Technical Expertise</h3>
+                    <div class="tool-chips">
+                        <a class="tool-chip" href="https://www.gromacs.org/" target="_blank" rel="noopener">GROMACS<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://www.ks.uiuc.edu/Research/namd/" target="_blank" rel="noopener">NAMD<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://www.lammps.org/" target="_blank" rel="noopener">LAMMPS<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://openmm.org/" target="_blank" rel="noopener">OpenMM<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://ambermd.org/" target="_blank" rel="noopener">Amber<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="http://www.emma-project.org/latest/" target="_blank" rel="noopener">PyEMMA<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://deeptime-ml.github.io/" target="_blank" rel="noopener">Deeptime<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://www.plumed.org/" target="_blank" rel="noopener">PLUMED<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://www.cgl.ucsf.edu/chimera/" target="_blank" rel="noopener">Chimera<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://vina.scripps.edu/" target="_blank" rel="noopener">AutoDock Vina<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://gaussian.com/" target="_blank" rel="noopener">Gaussian<span aria-hidden="true">↗</span></a>
+                        <a class="tool-chip" href="https://www.python.org/" target="_blank" rel="noopener">Python<span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
         </div>
     </section>
 
