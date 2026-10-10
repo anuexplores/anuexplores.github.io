@@ -117,6 +117,7 @@
         .theme-toggle { margin-left: 28px; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--primary); font-size: 1.05rem; line-height: 1; cursor: pointer; transition: var(--transition); }
         .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
         .nav-container nav { display: flex; align-items: center; }
+        .menu-toggle { display: none; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--primary); font-size: 1.1rem; line-height: 1; cursor: pointer; }
 
         /* Hero */
         .hero { min-height: calc(100vh - 75px); display: flex; align-items: center; background: radial-gradient(circle at 85% 20%, rgba(79, 124, 172, 0.12), transparent 30%), linear-gradient(135deg, var(--hero-from) 0%, var(--hero-to) 100%); padding: 90px 0; }
@@ -231,12 +232,15 @@
         @media (max-width: 768px) {
             .hero-container, .about-grid, .research-grid, .project-card, .expertise-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
-            .nav-container { height: auto; padding: 12px 0; flex-wrap: wrap; row-gap: 8px; }
-            .nav-container nav { width: 100%; min-width: 0; }
-            .nav-links { flex: 1; min-width: 0; gap: 20px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-bottom: 4px; }
-            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-container { height: 64px; }
+            .logo { font-size: 1.25rem; }
+            .menu-toggle { display: inline-flex; }
+            .theme-toggle { margin-left: 10px; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 6px 4% 12px; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+            .navbar.menu-open .nav-links { display: flex; }
+            .nav-links li + li { border-top: 1px solid var(--border); }
+            .nav-links a { display: block; padding: 13px 4px; font-size: 1rem; }
             .nav-links a::after { display: none; }
-            .theme-toggle { margin-left: 14px; flex-shrink: 0; }
         }
     </style>
 </head>
@@ -245,7 +249,7 @@
         <div class="nav-container">
             <a href="#home" class="logo">Anushka Biswas</a>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#research">Research</a></li>
                     <li><a href="#expertise">Expertise</a></li>
@@ -254,6 +258,7 @@
                     <li><a href="#conferences">Conferences</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
                 <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
             </nav>
         </div>
@@ -639,10 +644,21 @@
     </footer>
 
     <script>
+        var navbar = document.querySelector('.navbar');
+        var menuBtn = document.getElementById('menu-toggle');
+        function setMenu(open) {
+            navbar.classList.toggle('menu-open', open);
+            menuBtn.setAttribute('aria-expanded', open);
+            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            menuBtn.textContent = open ? '✕' : '☰';
+        }
+        menuBtn.addEventListener('click', function () { setMenu(!navbar.classList.contains('menu-open')); });
+        document.addEventListener('click', function (e) { if (!navbar.contains(e.target)) setMenu(false); });
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                setMenu(false);
             });
         });
     </script>
